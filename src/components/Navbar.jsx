@@ -1,10 +1,17 @@
-import React, { useState, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useRef, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [activeIndex, setActiveIndex] = useState(0); // Tracks the active menu item
   const MenuRef = useRef(null);
+
+  const sections = [
+    { id: "home", label: "Home" },
+    { id: "nobels", label: "Nobels" },
+    { id: "portfolio", label: "Portfolio" },
+    { id: "contact", label: "Contact" },
+  ];
 
   const toggleMenu = () => {
     if (MenuRef.current) {
@@ -14,22 +21,48 @@ const Navbar = () => {
 
   const handleMenuClick = (index) => {
     setActiveIndex(index); // Update the active menu item
+    const section = document.getElementById(sections[index].id);
+    section?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+
+      // Loop through sections to find the currently visible one
+      for (let i = 0; i < sections.length; i++) {
+        const section = document.getElementById(sections[i].id);
+        if (section) {
+          const { top, height } = section.getBoundingClientRect();
+          if (top >= -0.5 * height && top <= 0.5 * height) {
+            setActiveIndex(i);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="navbar">
       <div className="container">
-        <img src="assets/logo.svg" alt="Logo" className="logoNav" />
+        <img src="logo.svg" alt="Logo" className="logoNav" />
         <div className="nav-content">
           <FontAwesomeIcon icon={faBars} onClick={toggleMenu} />
           <ul className="navMenu" ref={MenuRef}>
-            {['Home', 'Services', 'Portfolio', 'About', 'Pricing', 'Contact'].map((item, index) => (
+            {sections.map((section, index) => (
               <li
-                key={index}
-                className={`link ${activeIndex === index ? 'active' : ''}`} // Add the active class dynamically
-                onClick={() => handleMenuClick(index)} // Update activeIndex on click
+                key={section.id}
+                className={`link ${activeIndex === index ? "active" : ""}`}
+                onClick={() => handleMenuClick(index)}
               >
-                <a href={`#${item.toLowerCase()}`}>{item}</a>
+                <a href={`#${section.id}`}>{section.label}</a>
               </li>
             ))}
           </ul>
