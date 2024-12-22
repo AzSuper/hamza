@@ -1081,6 +1081,12 @@ button[type="submit"].custome-btn:hover {
   height: 48px;
 }
 
+@media (max-width:400px) {
+  .top-container .contentt img{
+    height: 32px;
+  }
+}
+
 .top-container .contentt{
   display: flex;
   flex-direction: row;
