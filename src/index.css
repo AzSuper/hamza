@@ -572,6 +572,8 @@ button svg path{
   }
   .custome-btn{
     margin-top: 8px;
+    font-size: 14px !important;
+    align-items: center;
   }
 
   .connect{
@@ -1083,7 +1085,7 @@ button[type="submit"].custome-btn:hover {
 
 @media (max-width:400px) {
   .top-container .contentt img{
-    height: 32px;
+    height: 22px;
   }
 }
 

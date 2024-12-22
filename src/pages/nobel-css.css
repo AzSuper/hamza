@@ -450,6 +450,7 @@ body {
     /* mobile */
     .carousel {
         height: 600px;
+        overflow-y: hidden;
     }
 
     .carousel .list .item {

@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import "../pages/nobel-css.css";
 import { useParams } from "react-router-dom"; // Import useParams
 import { ArtItems, CottonItems, ChemestItems } from "../constant";
 import TopNobel from "../components/TopNobel";
 import NobelChemist from "../components/NobelChemist";
 import GoogleMapLocation from "../components/GoogleMapLocation";
+import ScrollToTop from "../components/ScrollToTop";
+import { useLocation } from "react-router-dom";
 
 const NobelDetail = () => {
   const { category } = useParams(); // Extract 'category' from params
@@ -64,7 +66,14 @@ const NobelDetail = () => {
       if (prevButton) prevButton.onclick = null;
       if (backButton) backButton.onclick = null;
     };
+
+    document.body.scrollTo(0, 0);
   }, []);
+
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
 
   // Determine which array to map based on the 'category' param
   const getItems = (category) => {
