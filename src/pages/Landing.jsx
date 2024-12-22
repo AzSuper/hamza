@@ -11,7 +11,7 @@ const Landing = () => {
       />
       <div className="glass"></div>
       <div className="text">
-        <div className="content">
+        <div className="content-landing">
           <h1 className="first">Hi there !</h1>
           <h1 className="second">
             We Are HAMZA Group,We Make Art and Quality.

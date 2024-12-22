@@ -1,20 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import Navbar from "./components/Navbar.jsx";
-import Landing from "./pages/Landing.jsx";
-import Nobels from "./pages/Nobels.jsx";
-import Portofolio from "./pages/Portofolio.jsx";
-import Contact from "./pages/Contact.jsx";
-import Footer from "./components/Footer.jsx";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Hamza from "./Hamza";
+import NobelDetail from "./pages/NobelDetail";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Navbar />
-    <Landing />
-    <Nobels />
-    <Portofolio />
-    <Contact />
-    <Footer />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Hamza />} />
+        <Route path="/Nobel/:category" element={<NobelDetail />} />
+      </Routes>
+    </BrowserRouter>
   </StrictMode>
 );

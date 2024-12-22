@@ -1,0 +1,18 @@
+.map-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 20% !important;
+  position: absolute;
+  top: 200px;
+  z-index: 10000;
+  left: 40px;
+  padding: 12px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+}

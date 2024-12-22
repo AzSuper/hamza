@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Button = ({ title, element }) => {
+const Button = ({ title, element, path }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <button
       className="custome-btn"
@@ -13,6 +16,7 @@ const Button = ({ title, element }) => {
         border: `3px solid ${element.color}`,
         backgroundColor: isHovered && element.color,
       }}
+      onClick={() => navigate(path)}
     >
       {title}
       <svg

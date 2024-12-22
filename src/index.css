@@ -277,7 +277,7 @@ video{
   display: flex;
   justify-content: flex-end;
 }
-.text .content {
+.text .content-landing {
   max-width: 450px;
 }
 
@@ -1058,4 +1058,44 @@ button[type="submit"].custome-btn:hover {
    p{
       padding-top: 0px !important;
     }
+}
+
+/* //nobel details  */
+
+.top-container{
+  transition: all 0.3s ease-in-out;
+    position: fixed;
+    width: 100%;
+    padding: 10px 48px;
+    z-index: 1000;
+    /* height: 100dvb; */
+}
+
+.top-container.scrolled {
+  background: rgba(255, 255, 255, 0.29);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-container .contentt img{
+  height: 48px;
+}
+
+.top-container .contentt{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  Button{
+    flex-direction: row-reverse;
+    font-size: 18px;
+    padding: 12px 18px;
+    cursor: pointer;
+  }
+
+  Button svg{
+    rotate: 180deg;
+    width: 18px;
+  }
 }
