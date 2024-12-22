@@ -3,7 +3,6 @@ import "../pages/nobel-css.css";
 import { useParams } from "react-router-dom"; // Import useParams
 import { ArtItems, CottonItems, ChemestItems } from "../constant";
 import TopNobel from "../components/TopNobel";
-import Product from "../components/Product";
 import NobelChemist from "../components/NobelChemist";
 import GoogleMapLocation from "../components/GoogleMapLocation";
 

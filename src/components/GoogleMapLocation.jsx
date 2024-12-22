@@ -12,7 +12,7 @@ const MapComponent = () => {
 
   // Color function
   const color = (t) => {
-    let item = nobelSections.find((item) => item.title == t);
+    let item = nobelSections.find((item) => item.title === t);
     return item ? item.color : "#000"; // Default to black if not found
   };
 
